@@ -2,25 +2,17 @@
 <section ng-controller="ShowcaseCtrl as showcasectrl" class="vir-showcase">
 	<div class="row align-center text-center">
 		<div class="column vir-showcase-header">
-			<h5>Featured Projects</h5>
-			<p>Distributed Hash Table</p>
+			<h6>Featured Projects</h6>
+			<p>{{ showcasectrl.selectedProject.title }}</p>
 		</div>
 	</div>
 	<div class="row align-center text-center">
-		<div class="column small-4 medium-2">
-			<div class="vir-showcase-tile">
-				<img src="img/dht.png"/>
-			</div>
-		</div>
-		<div class="column small-4 medium-2">
-			<div class="vir-showcase-tile">
-				<img src="img/neuralnet.png"/>
-			</div>
-		</div>
-		<div class="column small-4 medium-2">
-			<div class="vir-showcase-tile">
-				<img src="img/headphones.png"/>
-			</div>
+		<div class="column small-4 medium-2" ng-repeat="p in showcasectrl.projects">
+			<a ui-sref="{{ p.route }}" ng-mouseover="showcasectrl.setSelectedProject(p)">
+				<div class="vir-showcase-tile" ng-class="{'vir-showcase-selected-tile': showcasectrl.isSelectedProject(p)}">
+					<img ng-src="{{ p.imgSrc }}"/>
+				</div>
+			</a>
 		</div>
 	</div>
 </section>
