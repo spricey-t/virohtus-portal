@@ -9,10 +9,16 @@
 	<script src="angular/angular.js"></script>
 	<script src="angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="app.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 </head>
 <body>
 
-	<section ui-view></section>
+	<div class="row align-center">
+		<div class="column small-12 medium-10 large-8">
+			<section ui-view></section>
+		</div>
+	</div>
 
 </body>
 </html>

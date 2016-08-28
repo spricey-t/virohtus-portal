@@ -1,16 +1,12 @@
 
 
 <section ng-controller="HeaderCtrl as headerctrl" class="vir-header">
-	<div class="row align-center text-center">
+	<div class="row align-center align-middle text-center">
 		<div class="column small-4 medium-3 large-2">
 			<img class="vir-profile-pic" src="{{ headerctrl.profilePicUrl }}"/>
 		</div>
-	</div>
-	<!--
-	<div class="row align-center text-center" style="margin-top: 20px;">
-		<div class="column small-4">
-			<h4>Shane Price</h4>
+		<div ng-if="headerctrl.quoteShown" class="column small-12 medium-9 large-10">
+			<blockquote>{{ headerctrl.quote.text }}<cite>{{ headerctrl.quote.author }}</cite></blockquote>
 		</div>
 	</div>
-	-->
 </section>

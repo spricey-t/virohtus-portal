@@ -36,6 +36,11 @@ app.controller('HeaderCtrl', [
 		var vm = this;
 
 		vm.profilePicUrl = 'img/shen.jpg';
+		vm.quote = {
+			text: "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it.",
+			author: "Steve Jobs"
+		};
+		vm.quoteShown = true;
 	}
 ]);
 app.directive('virHeader', [
@@ -58,17 +63,17 @@ app.controller('ShowcaseCtrl', [
 		vm.isSelectedProject = isSelectedProject;
 		vm.projects = [];
 		vm.projects.push({
-			route: 'home.project({projectId: "dht"})',
+			route: 'projectDetail({projectId: "dht"})',
 			title: 'Distributed Hash Table',
 			imgSrc: 'img/dht.png'
 		});
 		vm.projects.push({
-			route: 'home.project({projectId: "neuralnet"})',
+			route: 'projectDetail({projectId: "neuralnet"})',
 			title: 'Neural Net',
 			imgSrc: 'img/neuralnet.png'
 		});
 		vm.projects.push({
-			route: 'home.project({projectId: "headphones"})',
+			route: 'projectDetail({projectId: "headphones"})',
 			title: 'Headphones',
 			imgSrc: 'img/headphones.png'
 		});
@@ -115,8 +120,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
 		.state('projects', {
 			url: '/projects'
 		})
-		.state('home.project', {
-			url: ':projectId',
+		.state('projectDetail', {
+			url: '/projects/:projectId',
 			templateUrl: 'project-detail.html'
 		});
 	}
